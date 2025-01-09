@@ -1,11 +1,13 @@
-#define soil_moisture_pin 4
+const int sensorPin = 34; // Analog pin connected to sensor
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
+  pinMode(sensorPin, INPUT);
 }
 
 void loop() {
-  Serial.println(analogRead(soil_moisture_pin));
-  delay(500);
+  int sensorValue = analogRead(sensorPin);
+  Serial.print("Soil Moisture Value: ");
+  Serial.println(sensorValue);
+  delay(1000);
 }
-
